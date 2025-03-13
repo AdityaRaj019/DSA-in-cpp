@@ -1,0 +1,28 @@
+sstream and stringstream in C++
+The <sstream> header in C++ provides a way to handle string-based input and output operations, similar to how we use <iostream> for standard input/output. It includes three main classes:
+
+std::stringstream: Used for both input and output operations on strings.
+std::istringstream: Used only for input operations on strings.
+std::ostringstream: Used only for output operations on strings.
+Among these, std::stringstream is the most versatile because it allows both input and output on strings.
+
+1. What is std::stringstream?
+std::stringstream is a stream class that allows us to manipulate strings as if they were input/output streams. It enables:
+
+String parsing (extracting data from a string)
+String formatting (constructing a formatted string)
+Conversion between different data types
+
+2. How to use std::stringstream?
+You need to include <sstream> to use it.
+
+8. When to Use stringstream?
+Parsing structured data: When working with space-separated or comma-separated values.
+Type conversion: Easily convert between int, float, double, and string.
+Building formatted strings: Instead of using multiple + operators, use stringstream to append values efficiently.
+
+9. Conclusion
+<sstream> provides powerful tools to work with string-based I/O.
+std::stringstream allows both input and output operations.
+std::istringstream is for input only, while std::ostringstream is for output only.
+It is useful for parsing, formatting, and converting between types.
