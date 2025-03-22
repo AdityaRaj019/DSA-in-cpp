@@ -20,6 +20,7 @@ class student{
      int print(){
       return marks;
      }
+     
 
 };
 
