@@ -10,34 +10,38 @@ class pokemon
         int movecp;
         int health;
     public:
-    pokemon(){
+     pokemon(){
         health = 100;
         movecp = 30;
         level = 0;
         name = new string("");
 
-    }
-    pokemon(int health,int movecp,int level,const string& name){
+     }
+     pokemon(int health,int movecp,int level,const string& name){
         this->health = health;
         this->movecp = movecp;
         this->name = new string(name);
         this->level=level;
-    }
-    pokemon(pokemon &evolve){
+     }
+     pokemon(pokemon &evolve){
         this->health = evolve.health;
         this->movecp = evolve.movecp;
-        this->name = new string(evolve.name);
-        this->level=level;
-    
-    void sethealth(int health){
+        this->name = new string(*(evolve.name));
+        this->level=evolve.level;
+     }
+     void setname(const string& newname){
+        name = new string(newname);
+     }
+     void sethealth(int health){
         this->health = health;
-    }
-    void setmove(int movecp){
+     }
+     void setmove(int movecp){
         this->movecp = movecp;
     }
-    void print(){
+     void print(){
         cout<<"[Name:"<<*(this->name)<<","<<"Health:"<<this->health<<"," <<"Level:"<<this->level<<","<<"Movecp:"<<this->movecp<<"]";
-    }
+     }
+     
 };
 
 
@@ -45,7 +49,14 @@ int main()
 {
     pokemon pika(1000,60,5,"Pikachu");
     pika.print();
-    // cout << "Hello, World!" << endl;
+    
+    pokemon bulba(pika);
+    bulba.print();
+    cout<<endl;
+    bulba.setname("Bulbasaurus");
+    bulba.print();
+    
+    cout << "Hello, World!" << endl;
 
     return 0;
 }
