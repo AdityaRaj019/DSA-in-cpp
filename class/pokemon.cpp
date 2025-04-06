@@ -39,9 +39,13 @@ class pokemon
         this->movecp = movecp;
     }
      void print(){
-        cout<<"[Name:"<<*(this->name)<<","<<"Health:"<<this->health<<"," <<"Level:"<<this->level<<","<<"Movecp:"<<this->movecp<<"]";
+        cout<<"[Name:"<<*(this->name)<<","<<"Health:"<<this->health<<"," <<"Level:"<<this->level<<","<<"Movecp:"<<this->movecp<<"]"<<endl;
      }
      
+     ~pokemon(){
+      cout<<"Removing object"<<endl;
+      
+     }
 };
 
 
@@ -56,7 +60,7 @@ int main()
     bulba.setname("Bulbasaurus");
     bulba.print();
     
-    cout << "Hello, World!" << endl;
+   //  cout << "Hello, World!" << endl;
 
     return 0;
 }
