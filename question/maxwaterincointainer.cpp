@@ -11,10 +11,10 @@ int cointainer(vector<int>height){
     int rp = height.size()-1;
     while(lp<rp){
         int wt = rp-lp;
-        int ht = min(height[lp],height[rp]);
+        int ht = min(height[lp],height[rp]);//taking height of smallest line
         int curr = wt*ht;
         maxwater = max(maxwater,curr);
-        height[lp]<height[rp]?lp++:rp--;
+        height[lp]<height[rp]?lp++:rp--; //checking and updating smallest wall couse that is only resposible for storage
     }
     return maxwater;
 
