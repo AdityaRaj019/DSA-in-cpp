@@ -23,14 +23,14 @@ bool checkInclusion(string s1, string s2) {
     int freq1[26]={0};
     int freq2[26]={0};
     for(int i = 0;i<s1.size();i++){
-        freq[s1[i]-'a']++;
+        freq1[s1[i]-'a']++;
         // freq[s2[i]-'a']++;
     }
     // 
     int i = 0;
     int j = s1.size();
     while(i<j&&j<=s2.size()){
-         freq[s2[i]-'a']++;
+         freq2[s2[i]-'a']++;
          i++;
     }
     if(checkEqual(freq1,freq2)){
@@ -39,10 +39,10 @@ bool checkInclusion(string s1, string s2) {
     while(i<s2.size()){
         char newChar = s2[i];
         int index = newChar - 'a';
-        freq[index]++;
+        freq2[index]++;
         char oldChar = s2[i-j];
         index = oldChar - 'a';
-        freq[index]--;
+        freq2[index]--;
         if(checkEqual(freq1,freq2)){
             return true;
         }

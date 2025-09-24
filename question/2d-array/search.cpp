@@ -23,7 +23,7 @@ bool searchMatrix(vector<vector<int>>& matrix, int target) {
 
         while(s<=e){
             int mid = s+(e-s)/2;
-            cout<<mid<<endl;
+            // cout<<mid<<endl;
             if(ans[mid]==target){
                 cout<<ans[mid]<<endl;
                 return true;
