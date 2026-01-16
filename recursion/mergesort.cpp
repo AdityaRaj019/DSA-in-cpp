@@ -12,10 +12,12 @@ void merge(vector<int> &arr,int s,int e){
     int k=s;
     for(int i=0;i<len1;i++){
         first[i] = arr[k++];
+        // cout<<first[i]<<" ";
     }
     k=mid+1;
     for(int i=0;i<len2;i++){
         second[i] = arr[k++];
+        cout<<second[i]<<" ";
     }
     int i=0;
     int j=0;
@@ -51,9 +53,9 @@ int main() {
       vector<int>arr = {7,5,8,3,1};
       rec_merge(arr,0,arr.size()-1);
     // cout << "" << endl;
-    for(int i = 0;i<arr.size();i++){
-        cout << arr[i] << " ";
-    }
+    // for(int i = 0;i<arr.size();i++){
+    //     cout << arr[i] << " ";
+    // }
     cout << endl;
     return 0;
 }

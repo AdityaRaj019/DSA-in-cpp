@@ -24,6 +24,7 @@ using namespace std;
 
 
 
+
 int main() {
       vector<int>arr = {2,4,1,3,5};
     cout << inversion(arr) << endl;
