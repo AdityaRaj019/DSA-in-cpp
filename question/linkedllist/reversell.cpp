@@ -88,20 +88,35 @@ void print(Node *&head)
     cout << endl;
 }
 
+void solve(Node* &head,Node* &curr,Node* &prev){
+    // if(head==NULL || heaf->next==NULL) return;
+    if(curr==NULL) {
+        head = prev;
+        return;    
+    }
 
+    Node* temp = curr->next;
+    curr->next = prev;
+    prev = curr;
+    curr=temp;
+    solve(head,curr,prev);
+   
+}
 void reverse(Node* &head){
     Node* curr = head;
     Node* temp = head;
     Node* prev = NULL;
-    while(temp!=NULL){
-        temp = curr->next;
-        curr->next = prev;
-        prev = curr;
-        curr = temp;
-    }  
-    head = prev; 
+    // while(temp!=NULL){
+    //     temp = curr->next;
+    //     curr->next = prev;
+    //     prev = curr;
+    //     curr = temp;
+    // }  
+    // head = prev; 
+    solve(head,curr,prev);
+
 }  
-void reverse(Node* &Head)
+// void reverse(Node* &Head)
 int main() {
     Node* first = new Node(3);
     Node* head = first;
