@@ -87,45 +87,40 @@ void print(Node *&head)
     }
     cout << endl;
 }
-
-void solve(Node* &head,Node* &curr,Node* &prev){
-    // if(head==NULL || heaf->next==NULL) return;
-    if(curr==NULL) {
-        head = prev;
-        return;    
+int getLength(Node* &head){
+    Node* temp = head;
+    int cnt = 0;
+    while(temp!=NULL){
+        cnt++;
+        temp=temp->next;
     }
-
-    Node* temp = curr->next;
-    curr->next = prev;
-    // prev = curr;
-    // curr=temp;
-    solve(head,temp,curr);
-   
+    return cnt;
 }
-Node* reverse1(Node* &head){
-    if(head==NULL||head->next==NULL){
+Node* midelem(Node* &head){
+    // int n = getLength(head);
+    // int midposi = (n/2).;
+    // Node* temp = head;
+    // int cnt =0;
+    // while(cnt<midposi){
+    //     temp = temp->next;
+    //     cnt++;
+    // }
+    Node* slow = head;
+    Node* fast = head->next;
+    if(head==NULL){
         return head;
     }
-    int temp_head = reverse1(head->next);
-    head->next->next = head;
-    head->next=NULL;
-    return temp_head;
+    while(fast!=NULL){
+        fast = fast->next;
+        if(fast!=NULL){
+            fast = fast->next;
+        }
+        slow = slow->next;
+    }
+    // return temp;
+    return slow;
 }
-void reverse(Node* &head){
-    Node* curr = head;
-    Node* temp = head;
-    Node* prev = NULL;
-    // while(temp!=NULL){
-    //     temp = curr->next;
-    //     curr->next = prev;
-    //     prev = curr;
-    //     curr = temp;
-    // }  
-    // head = prev; 
-    solve(head,curr,prev);
 
-}  
-// void reverse(Node* &Head)
 int main() {
     Node* first = new Node(3);
     Node* head = first;
@@ -133,10 +128,10 @@ int main() {
     insertAtposi(head,tail,2,5);
     insertAtposi(head,tail,3,7);
     insertAtposi(head,tail,4,9);
-    print(head);
-    reverse(head);
-    print(head);
-    cout<<head->data;
-    // cout << "" << endl;
+    insertAtposi(head,tail,5,10);
+    // print(head);
+    Node* mid = midelem(head);
+    // cout<<getLength(head);
+    cout<<mid->data;
     return 0;
 }
