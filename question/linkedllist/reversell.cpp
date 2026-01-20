@@ -106,7 +106,7 @@ Node* reverse1(Node* &head){
     if(head==NULL||head->next==NULL){
         return head;
     }
-    int temp_head = reverse1(head->next);
+    Node* temp_head = reverse1(head->next);
     head->next->next = head;
     head->next=NULL;
     return temp_head;
