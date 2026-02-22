@@ -15,7 +15,7 @@ using namespace std ;
     }
     for(int i =0;i<max_val;i++){
       for(int j = 0 ; j < vec.size() ; j++){
-         if()
+         if(rttteef)
       }
     }
    //  vec.push_back(9); 
