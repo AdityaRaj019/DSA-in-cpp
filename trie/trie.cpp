@@ -10,6 +10,7 @@ class TrieNode{
         TrieNode* children[26];
         bool isTerminal;
     TrieNode(char ch){
+        data = ch;
         for(int i = 0 ; i < 26 ; i++){
             children[i] = nullptr;
         }
@@ -59,14 +60,48 @@ class Trie{
         bool searchWord(string word){
             return searchUtil(root,word);
         }
-};
+        bool isEmpty(TrieNode* root){
+            for(int i = 0 ; i < 26 ; i++){
+                if(root->children[i] != nullptr){
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        bool removeUtil(TrieNode* root , string word){
+            if(word.size() == 0){
+                root->isTerminal = false;
+                return isEmpty(root);
+            }
+
+            int index = word[0] - 'A';
+            TrieNode* child = root->children[index];
+            if(child == nullptr){
+                return false;
+            }
+
+            bool shouldDeleteChild = removeUtil(child,word.substr(1));
+            if(shouldDeleteChild){
+                delete child;
+                root->children[index] = nullptr;
+            }
+
+            return !root->isTerminal && isEmpty(root);
+        }
+        void removeWord(string word){
+             removeUtil(root,word);
+        }
+    };
 
 int main() {
     Trie *t = new Trie();
     t->insertWord("TIME");
     t->insertWord("DO");
     t->insertWord("ARM");
-    cout << "present: " << t->searchWord("ARM");
+    cout << "present: " << t->searchWord("ARM") << endl;
+    t->removeWord("ARM");
+    cout <<"present: " << t->searchWord("ARM") << endl ;
       
     // cout << "" << endl;
     return 0;
